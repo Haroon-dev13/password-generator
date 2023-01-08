@@ -97,11 +97,11 @@ let diff = 0;
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let length = prompt("How much length do you want in password?");
+  let length = parseInt(prompt("How much length do you want in password?"));
   if(length>=1 && length<=64){
-    lower = parseInt(prompt("How many lowercase character you want in password?"));
-    upper = parseInt(prompt("Do you want uppercase character in password?"));
-    numeric = parseInt(prompt("Do you want numeric character in password?"));
+    lower = parseInt(prompt("How many lowercase characters you want in password?"));
+    upper = parseInt(prompt("Do you want uppercase characters in password?"));
+    numeric = parseInt(prompt("Do you want numeric characters in password?"));
     special = parseInt(prompt("Do you want special characters?"));
     if(lower>=1 || upper>=1 || numeric>=1 || special>=1){
       let sum = lower+upper+numeric+special;
