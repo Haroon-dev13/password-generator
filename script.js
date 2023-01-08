@@ -90,7 +90,22 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  let length = prompt("How much length do you want in password?");
+  if(length>=1 && length<=64){
+    let lower = prompt("How many lowercase character you want in password?");
+    let upper = prompt("Do you want uppercase character in password?");
+    let numeric = prompt("Do you want numeric character in password?");
+    let special = prompt("Do you want special characters?");
+    if(lower>=1 || upper>=1 || numeric>=1 || special>=1){
 
+    }
+    else{
+      alert("Please choose at least one character type.")
+    }
+  }
+  else{
+    alert("Please choose password length between 1 to 64.");
+  }
 }
 
 // Function for getting a random element from an array
@@ -116,3 +131,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+getPasswordOptions();
