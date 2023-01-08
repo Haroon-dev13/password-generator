@@ -9,10 +9,10 @@ This is a Random Password Generator app.App will get some choices from the user 
 To use this Website you do not need to install any software or tool.You just need a browser and internet connection to visit this website.
 
 ## Usage
-This is a password generator web application.When user click on generate button then app will ask some questions to the user in order to generate random password.First this will ask length of password.Then chracter types like lowercase,uppercase,numeric and special characters.After getting these information this app will generate random password according to user choice.Given below is the screen short of example output.
+This is a password generator web application.When user click on generate button then app will ask some questions to the user in order to generate random password.Firstly it will ask length of the password.Secondly character types like lowercase,uppercase,numeric and special characters.After getting these information this app will generate random password according to user choice.Given below is the screen short of example output.
 
-* ### Console Finance Output:
-![Finance](images/finance.JPG)
+* ### Password Generator Output:
+![Password Generator](images/password-generator.JPG)
 
 ## Credits
 N/A
