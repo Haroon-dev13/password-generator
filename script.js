@@ -108,19 +108,23 @@ function getPasswordOptions() {
       console.log(sum);
       if(sum > length){
         alert("Your specified characters length more than your choosen length.Please try again!")
+        return false;
       }
       else{
         diff = length-sum;
-        console.log(diff);
-        generatePassword();
+        // console.log(diff);
+        // generatePassword();
+        return true;
       }
     }
     else{
       alert("Please choose at least one character type.")
+      return false;
     }
   }
   else{
     alert("Please choose password length between 1 to 64.");
+    return false;
   }
 }
 
@@ -177,6 +181,7 @@ function generatePassword() {
 
   }
     console.log(getPassword);
+    return getPassword;
 }
 
 // Get references to the #generate element
@@ -185,13 +190,15 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
-
-  passwordText.value = password;
+  getPassword = [];
+  document.getElementById('password').innerHTML='';
+  let opt = getPasswordOptions();
+  if(opt){
+    var password = generatePassword();
+    var passwordText = document.querySelector('#password');
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-getPasswordOptions();
