@@ -88,16 +88,32 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// Decleare variables with Global scope
+let lower=0;
+let upper=0;
+let numeric=0;
+let special=0;
+let diff = 0; 
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   let length = prompt("How much length do you want in password?");
   if(length>=1 && length<=64){
-    let lower = prompt("How many lowercase character you want in password?");
-    let upper = prompt("Do you want uppercase character in password?");
-    let numeric = prompt("Do you want numeric character in password?");
-    let special = prompt("Do you want special characters?");
+    lower = parseInt(prompt("How many lowercase character you want in password?"));
+    upper = parseInt(prompt("Do you want uppercase character in password?"));
+    numeric = parseInt(prompt("Do you want numeric character in password?"));
+    special = parseInt(prompt("Do you want special characters?"));
     if(lower>=1 || upper>=1 || numeric>=1 || special>=1){
-
+      let sum = lower+upper+numeric+special;
+      console.log(sum);
+      if(sum > length){
+        alert("Your specified characters length more than your choosen length.Please try again!")
+      }
+      else{
+        diff = length-sum;
+        console.log(diff);
+        generatePassword();
+      }
     }
     else{
       alert("Please choose at least one character type.")
@@ -110,12 +126,59 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  // min = Math.ceil(0);
+  min = 0;
+  max = Math.floor(arr.length-1);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 
 }
 
 // Function to generate password with user input
+let getPassword =[];
 function generatePassword() {
+  if(lower){
+    for (let i = 0; i < lower; i++) {
+      let rand = getRandom(lowerCasedCharacters);
+      getPassword.push(lowerCasedCharacters[rand])
+    }
+    console.log(getPassword);
+  }
+  if(upper){
+    for (let i = 0; i < upper; i++) {
+      let rand = getRandom(upperCasedCharacters);
+      getPassword.push(upperCasedCharacters[rand])
+    }
+    console.log(getPassword);
 
+  }
+  if(numeric){
+    for (let i = 0; i < numeric; i++) {
+      let rand = getRandom(numericCharacters);
+      getPassword.push(numericCharacters[rand])
+    }
+    console.log(getPassword);
+
+  }
+  if(special){
+    for (let i = 0; i < special; i++) {
+      let rand = getRandom(specialCharacters);
+      getPassword.push(specialCharacters[rand])
+    }
+    console.log(getPassword);
+
+  }
+  if(diff){
+    for (let i = 0; i < diff; i++) {
+      let rand = getRandom(getPassword);
+      getPassword.push(getPassword[rand])
+    }
+    console.log(getPassword);
+
+  }
+  // else{
+  //   alert("Something went wrong..");
+  // }
+    console.log(getPassword);
 }
 
 // Get references to the #generate element
