@@ -141,14 +141,14 @@ function generatePassword() {
       let rand = getRandom(lowerCasedCharacters);
       getPassword.push(lowerCasedCharacters[rand])
     }
-    console.log(getPassword);
+    // console.log(getPassword);
   }
   if(upper){
     for (let i = 0; i < upper; i++) {
       let rand = getRandom(upperCasedCharacters);
       getPassword.push(upperCasedCharacters[rand])
     }
-    console.log(getPassword);
+    // console.log(getPassword);
 
   }
   if(numeric){
@@ -156,7 +156,8 @@ function generatePassword() {
       let rand = getRandom(numericCharacters);
       getPassword.push(numericCharacters[rand])
     }
-    console.log(getPassword);
+    // console.log(getPassword);
+
 
   }
   if(special){
@@ -164,7 +165,7 @@ function generatePassword() {
       let rand = getRandom(specialCharacters);
       getPassword.push(specialCharacters[rand])
     }
-    console.log(getPassword);
+    // console.log(getPassword);
 
   }
   if(diff){
@@ -172,17 +173,15 @@ function generatePassword() {
       let rand = getRandom(getPassword);
       getPassword.push(getPassword[rand])
     }
-    console.log(getPassword);
+    // console.log(getPassword);
 
   }
-  // else{
-  //   alert("Something went wrong..");
-  // }
     console.log(getPassword);
 }
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
+
 
 // Write password to the #password input
 function writePassword() {
