@@ -99,11 +99,11 @@ let diff = 0;
 function getPasswordOptions() {
   let length = parseInt(prompt("How much length do you want in password?"));
   if(length>=1 && length<=64){
-    lower = parseInt(prompt("How many lowercase characters you want in password?"));
-    upper = parseInt(prompt("Do you want uppercase characters in password?"));
-    numeric = parseInt(prompt("Do you want numeric characters in password?"));
-    special = parseInt(prompt("Do you want special characters?"));
-    if(lower>=1 || upper>=1 || numeric>=1 || special>=1){
+    lower = getNum(parseInt(prompt("How many lowercase characters you want in password?")));
+    upper = getNum(parseInt(prompt("Do you want uppercase characters in password?")));
+    numeric = getNum(parseInt(prompt("Do you want numeric characters in password?")));
+    special = getNum(parseInt(prompt("Do you want special characters?")));
+    if(lower != 0 || upper != 0 || numeric != 0 || special != 0){
       let sum = lower+upper+numeric+special;
       console.log(sum);
       if(sum > length){
@@ -112,8 +112,6 @@ function getPasswordOptions() {
       }
       else{
         diff = length-sum;
-        // console.log(diff);
-        // generatePassword();
         return true;
       }
     }
@@ -137,17 +135,25 @@ function getRandom(arr) {
 
 }
 
+// Function change NaN value to 0.
+function getNum(val) {
+  if (isNaN(val)) {
+    return 0;
+  }
+  return val;
+}
+
 // Function to generate password with user input
 let getPassword =[];
 function generatePassword() {
-  if(lower){
+  if(lower != NaN){
     for (let i = 0; i < lower; i++) {
       let rand = getRandom(lowerCasedCharacters);
       getPassword.push(lowerCasedCharacters[rand])
     }
     // console.log(getPassword);
   }
-  if(upper){
+  if(upper != NaN){
     for (let i = 0; i < upper; i++) {
       let rand = getRandom(upperCasedCharacters);
       getPassword.push(upperCasedCharacters[rand])
@@ -191,7 +197,6 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   getPassword = [];
-  document.getElementById('password').innerHTML='';
   let opt = getPasswordOptions();
   if(opt){
     var password = generatePassword();
