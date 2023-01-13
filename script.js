@@ -152,14 +152,14 @@ function generatePassword() {
       let rand = getRandom(lowerCasedCharacters);
       getPassword.push(lowerCasedCharacters[rand])
     }
-    console.log(getPassword);
+    // console.log(getPassword);
   }
   if(upper != false){
     for (let i = 0; i < div; i++) {
       let rand = getRandom(upperCasedCharacters);
       getPassword.push(upperCasedCharacters[rand])
     }
-    console.log(getPassword);
+    // console.log(getPassword);
 
   }
   if(numeric != false){
@@ -167,7 +167,7 @@ function generatePassword() {
       let rand = getRandom(numericCharacters);
       getPassword.push(numericCharacters[rand])
     }
-    console.log(getPassword);
+    // console.log(getPassword);
 
 
   }
@@ -176,18 +176,10 @@ function generatePassword() {
       let rand = getRandom(specialCharacters);
       getPassword.push(specialCharacters[rand])
     }
-    console.log(getPassword);
-
-  }
-  // if(diff){
-  //   for (let i = 0; i < diff; i++) {
-  //     let rand = getRandom(getPassword);
-  //     getPassword.push(getPassword[rand])
-  //   }
     // console.log(getPassword);
 
-  // }
-    console.log(getPassword);
+  }
+    // console.log(getPassword);
     return getPassword;
 }
 
